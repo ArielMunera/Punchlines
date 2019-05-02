@@ -1,0 +1,10 @@
+<div class="container-fluid all-page" *ngIf="randomPunchline">
+  <button routerLink='/' type="button" class="btn col-sm-8 col-md-5 col-lg-2 col-xl-2">Back</button>
+  <div class="citation col-4 offset-4 {{colorClass}}" class="{{type === 'mybutton' ? namespace + '-mybutton' : ''}}">
+    <div class="col-12">
+      {{randomPunchline.content}}
+    </div>
+    <input type="text" class="form-control" #authorAnswer placeholder="Who said this ?"/>
+    <button type="button" (click)="answer(authorAnswer.value)">Answer</button>
+  </div>
+</div>
