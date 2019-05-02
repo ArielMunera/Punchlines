@@ -3,5 +3,6 @@
 }
 
 .citation {
-    height: 30vh;
+    margin-top: 30vh;
+    border: 1px dotted black;
 }

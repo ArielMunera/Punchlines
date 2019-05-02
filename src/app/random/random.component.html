@@ -1,15 +1,17 @@
 <div class="container-fluid all-page" *ngIf="randomPunchline">
   <button routerLink='/' type="button" class="btn col-sm-8 col-md-5 col-lg-2 col-xl-2">Back</button>
   <div class="citation col-4 offset-4">
-    <div class="col-12">
+    <div class="row justify-content-center">
       {{randomPunchline.content}}
     </div>
-    <div class="col-12">
-      {{randomPunchline.author}}
+    <div class="row justify-content-end pr-5">
+      <strong class="mr-5">{{randomPunchline.author}}</strong>
     </div>
-    <div class="col-12">
-      {{randomPunchline.date}}
+    <div class="row justify-content-end">
+      <i class="mr-3">{{randomPunchline.date}}</i>
     </div>
-    <button type="button" (click)="newRandom()">New one</button>
+    <div class="row justify-content-center border-top border-secondary mt-2 pt-2 pb-2">
+      <button type="button" (click)="newRandom()">New one</button>
+    </div>
   </div>
 </div>

@@ -17,7 +17,7 @@ export class RandomComponent implements OnInit {
 
   }
 
-  newRandom() {
+  public newRandom() {
     this.randomPunchline = this.punchlines[Math.floor(Math.random() * Math.floor(this.punchlines.length))];
   }
 

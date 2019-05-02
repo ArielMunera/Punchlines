@@ -21,23 +21,27 @@ export class GuessWhoComponent implements OnInit {
 
   }
 
-  answer(authorAnswer: string) {
+  public newRandom() {
+    this.randomPunchline = this.punchlines[Math.floor(Math.random() * Math.floor(this.punchlines.length))];
+  }
+
+  public answer(authorAnswer: string) {
     if (this.randomPunchline.author.toLowerCase().trim().includes(authorAnswer.toLowerCase().trim())) {
-      this.colorClass = true;
+      document.getElementById("citation").classList.add('bg-success');
+      let that = this;
       setTimeout(function () {
-        console.log("Timeout");
-        this.colorClass = null;
+        document.getElementById("citation").classList.remove('bg-success');
+        that.newRandom();
       }, 3000);
     } else {
-      this.colorClass = false;
+      document.getElementById("citation").classList.add('bg-danger');
       setTimeout(function () {
-        console.log("Timeout");
-        this.colorClass = null;
+        document.getElementById("citation").classList.remove('bg-danger');
       }, 3000);
     }
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.param_punchlines.getPunchlines().subscribe(
       (param_pulchlines: Punchline[]) => {
         this.punchlines = param_pulchlines;
