@@ -19,7 +19,6 @@ export class GuessWhoComponent implements OnInit {
     this.authorAnswer = "";
     this.colorClass = null;
 
-    this.randomPunchline = this.punchlines[Math.floor(Math.random() * Math.floor(this.punchlines.length))];
   }
 
   answer(authorAnswer: string) {
@@ -42,6 +41,7 @@ export class GuessWhoComponent implements OnInit {
     this.param_punchlines.getPunchlines().subscribe(
       (param_pulchlines: Punchline[]) => {
         this.punchlines = param_pulchlines;
+        this.randomPunchline = this.punchlines[Math.floor(Math.random() * Math.floor(this.punchlines.length))];
       }
     )
   }

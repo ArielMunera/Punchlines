@@ -15,7 +15,6 @@ export class RandomComponent implements OnInit {
   constructor(private param_punchlines: PunchlinesService) {
     this.punchlines = [];
 
-    this.randomPunchline = this.punchlines[Math.floor(Math.random() * Math.floor(this.punchlines.length))];
   }
 
   newRandom() {
@@ -27,6 +26,7 @@ export class RandomComponent implements OnInit {
     this.param_punchlines.getPunchlines().subscribe(
       (param_pulchlines: Punchline[]) => {
         this.punchlines = param_pulchlines;
+        this.randomPunchline = this.punchlines[Math.floor(Math.random() * Math.floor(this.punchlines.length))];
       }
     )
   }
