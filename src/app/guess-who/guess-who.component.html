@@ -1,6 +1,6 @@
 <div class="container-fluid all-page" *ngIf="randomPunchline">
   <button routerLink='/' type="button" class="btn col-sm-8 col-md-5 col-lg-2 col-xl-2">Back</button>
-  <div class="citation col-4 offset-4 {{colorClass}}" class="{{type === 'mybutton' ? namespace + '-mybutton' : ''}}">
+  <div class="citation col-4 offset-4 {{colorClass === null ? '' : {{colorClass ? 'bg-success' : 'bg-danger'}}}}">
     <div class="col-12">
       {{randomPunchline.content}}
     </div>

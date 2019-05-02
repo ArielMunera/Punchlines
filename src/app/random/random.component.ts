@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PunchlinesService } from '../punchlines.service';
-import { Router } from '@angular/router';
 import { Punchline } from '../punchline';
 
 @Component({
@@ -13,10 +12,9 @@ export class RandomComponent implements OnInit {
   public punchlines: Punchline[];
   public randomPunchline: Punchline;
 
-  constructor(param_punchlines: PunchlinesService) {
+  constructor(private param_punchlines: PunchlinesService) {
     this.punchlines = [];
 
-    this.punchlines = param_punchlines.getPunchlines();
     this.randomPunchline = this.punchlines[Math.floor(Math.random() * Math.floor(this.punchlines.length))];
   }
 
@@ -26,6 +24,11 @@ export class RandomComponent implements OnInit {
 
   ngOnInit() {
     this.newRandom();
+    this.param_punchlines.getPunchlines().subscribe(
+      (param_pulchlines: Punchline[]) => {
+        this.punchlines = param_pulchlines;
+      }
+    )
   }
 
 }
